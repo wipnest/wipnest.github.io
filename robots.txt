@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wipnest.github.io/sitemap.xml
