@@ -10,6 +10,7 @@ const types = {
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
   '.webp': 'image/webp',
+  '.mp4': 'video/mp4',
   '.ttf': 'font/ttf',
   '.txt': 'text/plain',
 };

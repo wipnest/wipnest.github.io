@@ -26,7 +26,7 @@
 <header class="site-head">
   <div class="wrap top">
     <a class="logo" href="./"><img src="assets/icon-192.png" alt="" width="34" height="34">WipNest</a>
-    <nav aria-label="Site"><a href="#features">Features</a><a href="#pricing">Pricing</a><a class="wide-only" href="privacy.html">Privacy</a></nav>
+    <nav aria-label="Site"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="test.html">Test it</a></nav>
   </div>
 </header>
 
@@ -34,16 +34,29 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero-body">
       <div>
-        <p class="eyebrow">Coming soon to Google Play</p>
+        <p class="eyebrow">Now testing on Google Play</p>
         <h1 id="hero-title">A home for everything you're <em>working on.</em></h1>
         <p class="lead">WipNest is a calm, offline project tracker for people who start more projects than they finish. Park new ideas, pick up where you left off, and let nothing fade away.</p>
         <div class="cta">
-          <a class="btn" href="mailto:maquiling.aa@gmail.com?subject=Tell%20me%20when%20WipNest%20launches">Tell me when it launches</a>
-          <a class="btn ghost" href="#features">See how it works</a>
+          <a class="btn" href="test.html">Become a tester</a>
+          <a class="btn ghost" href="#video">Watch the video</a>
         </div>
         <ul class="facts"><li>Android</li><li>Works offline</li><li>No account</li></ul>
       </div>
       <div class="hero-art"><img src="assets/bird.webp" alt="The WipNest bird sitting in its nest" width="720" height="720" fetchpriority="high"></div>
+    </div>
+  </section>
+
+  <section id="video" class="video" aria-labelledby="video-title">
+    <div class="wrap">
+      <h2 id="video-title">See WipNest in under a minute</h2>
+      <div class="player">
+        <video controls playsinline preload="none" poster="assets/launch-poster.webp" width="1280" height="720">
+          <source src="assets/launch.mp4" type="video/mp4">
+          <a href="assets/launch.mp4">Watch the WipNest launch video</a>
+        </video>
+        <button class="play" type="button" aria-label="Play the WipNest video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></button>
+      </div>
     </div>
   </section>
 
@@ -147,9 +160,12 @@
   <section class="closing" aria-labelledby="closing-title">
     <div class="wrap">
       <img src="assets/bird.webp" alt="" width="720" height="720" loading="lazy">
-      <h2 id="closing-title">Give your projects a nest</h2>
-      <p class="sub">WipNest is coming soon to Google Play. Send a quick email and you'll hear the day it's out.</p>
-      <div class="cta"><a class="btn" href="mailto:maquiling.aa@gmail.com?subject=Tell%20me%20when%20WipNest%20launches">Tell me when it launches</a></div>
+      <h2 id="closing-title">Help WipNest hatch</h2>
+      <p class="sub">Google needs 12 people to test WipNest for 14 days before it can launch for everyone. Joining takes about a minute.</p>
+      <div class="cta">
+        <a class="btn" href="test.html">Become a tester</a>
+        <a class="btn ghost" href="mailto:maquiling.aa@gmail.com?subject=Tell%20me%20when%20WipNest%20launches">Email me when it's public</a>
+      </div>
     </div>
   </section>
 </main>
@@ -157,7 +173,7 @@
 <footer>
   <div class="wrap">
     <span>© 2026 Aldrin Maquiling · <a href="mailto:maquiling.aa@gmail.com">maquiling.aa@gmail.com</a></span>
-    <nav aria-label="Legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-data.html">Delete your data</a></nav>
+    <nav aria-label="Legal"><a href="test.html">Become a tester</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-data.html">Delete your data</a></nav>
   </div>
 </footer>
 <script>
@@ -167,8 +183,13 @@
   const onScroll = () => head.classList.toggle('scrolled', scrollY > 8);
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
+  const player = document.querySelector('.player'), video = player.querySelector('video');
+  video.controls = false; // the big play button stands in until playback starts
+  player.querySelector('.play').addEventListener('click', () => video.play());
+  video.addEventListener('play', () => { player.classList.add('started'); video.controls = true; });
+
   // Anything that has reached the lower part of the screen, or was scrolled past quickly, is shown.
-  let pending = [...document.querySelectorAll('main section:not(.hero) :is(h2, .sub, .feature > div, .card, .fine, .closing img, .closing .cta)')];
+  let pending = [...document.querySelectorAll('main section:not(.hero) :is(h2, .sub, .player, .feature > div, .card, .fine, .closing img, .closing .cta)')];
   for (const el of pending) {
     if (el.matches('.card')) el.style.setProperty('--d', [...el.parentElement.children].indexOf(el) * 0.1 + 's');
     if (el.matches('.feature > .shot')) el.style.setProperty('--d', '0.12s');
