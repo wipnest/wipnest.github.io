@@ -5,54 +5,118 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>WipNest — a home for everything you're working on</title>
 <meta name="description" content="WipNest is an offline Android app for people who start more projects than they finish. Park new ideas, pick up where you left off, and let nothing fade away.">
-<meta name="theme-color" content="#4e2814">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0f12" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://wipnest.github.io/">
+<meta property="og:type" content="website">
 <meta property="og:title" content="WipNest">
 <meta property="og:description" content="A home for everything you're working on. Park new ideas, pick up where you left off, and let nothing fade away.">
 <meta property="og:image" content="https://wipnest.github.io/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://wipnest.github.io/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="fonts/Figtree-Bold.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-<header class="hero">
-  <div class="wrap">
-    <div class="top">
-      <a class="logo" href="./"><img src="assets/icon-192.png" alt="">WipNest</a>
-      <nav aria-label="Site"><a href="#pricing">Pricing</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
-    </div>
-    <div class="hero-body">
-      <div>
-        <h1>A home for everything you're working on.</h1>
-        <p class="lead">WipNest is a calm, offline project tracker for people who start more projects than they finish. Park new ideas, pick up where you left off, and let nothing fade away.</p>
-        <div class="cta">
-          <span class="badge soon">Coming soon to Google Play</span>
-          <span class="note">Android · works offline · no account</span>
-        </div>
-      </div>
-      <div class="hero-art"><img src="assets/hero-mark.jpg" alt="The WipNest bird sitting in its nest" width="720" height="720"></div>
-    </div>
+<header class="site-head">
+  <div class="wrap top">
+    <a class="logo" href="./"><img src="assets/icon-192.png" alt="" width="34" height="34">WipNest</a>
+    <nav aria-label="Site"><a href="#features">Features</a><a href="#pricing">Pricing</a><a class="wide-only" href="privacy.html">Privacy</a></nav>
   </div>
 </header>
 
 <main>
-  <section>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-body">
+      <div>
+        <p class="eyebrow">Coming soon to Google Play</p>
+        <h1 id="hero-title">A home for everything you're <em>working on.</em></h1>
+        <p class="lead">WipNest is a calm, offline project tracker for people who start more projects than they finish. Park new ideas, pick up where you left off, and let nothing fade away.</p>
+        <div class="cta">
+          <a class="btn" href="mailto:maquiling.aa@gmail.com?subject=Tell%20me%20when%20WipNest%20launches">Tell me when it launches</a>
+          <a class="btn ghost" href="#features">See how it works</a>
+        </div>
+        <ul class="facts"><li>Android</li><li>Works offline</li><li>No account</li></ul>
+      </div>
+      <div class="hero-art"><img src="assets/bird.webp" alt="The WipNest bird sitting in its nest" width="720" height="720" fetchpriority="high"></div>
+    </div>
+  </section>
+
+  <section id="features" class="alt" aria-labelledby="features-title">
     <div class="wrap">
-      <h2>Built for the projects you keep coming back to</h2>
+      <h2 id="features-title">Built for the projects you keep coming back to</h2>
       <p class="sub">Side projects, hobbies, ideas for later. WipNest remembers where each one stands, so returning takes seconds instead of an evening.</p>
-      <div class="grid">
-        <div class="card"><div class="dot" aria-hidden="true">💡</div><h3>Park new ideas freely</h3><p>Ideas are unlimited. Jot one down in seconds and get back to what you were doing; start it when you're ready.</p></div>
-        <div class="card"><div class="dot" aria-hidden="true">📍</div><h3>Pick up where you left off</h3><p>A Continue card, an Up Next step and a short "where did I stop?" note bring you straight back into a project.</p></div>
-        <div class="card"><div class="dot" aria-hidden="true">🪺</div><h3>Private and offline</h3><p>Your projects stay on your phone. No account, no ads, no analytics, and everything works without a connection.</p></div>
-        <div class="card"><div class="dot" aria-hidden="true">💾</div><h3>Backups your way</h3><p>Export a backup file whenever you like. With Pro, keep a private snapshot in your own Google Drive too.</p></div>
+
+      <div class="feature">
+        <div>
+          <p class="kicker">Continue</p>
+          <h3>Pick up where you left off</h3>
+          <p>The project you touched last waits at the top, with your progress and the step you're on. One tap and you're back in.</p>
+        </div>
+        <div class="shot"><img src="assets/shot-home.webp" alt="WipNest home screen with a Continue card for a budget tracker app, showing 2 of 5 plans done and the current step" width="540" height="1200" loading="lazy"></div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <p class="kicker">Where you left off</p>
+          <h3>A note to future you</h3>
+          <p>Before you put a project down, leave a short "where did I stop?" note. Next time, it's right there with your Up Next step.</p>
+        </div>
+        <div class="shot"><img src="assets/shot-detail.webp" alt="Project screen showing a Where You Left Off note and an Up Next step with a Mark done button" width="540" height="1200" loading="lazy"></div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <p class="kicker">Ideas</p>
+          <h3>Park new ideas freely</h3>
+          <p>Ideas are unlimited. Jot one down in seconds and get back to what you were doing; start it when you're ready.</p>
+        </div>
+        <div class="shot"><img src="assets/shot-ideas.webp" alt="Projects list filtered to four ideas, including a jeepney route finder and a typing game" width="540" height="1200" loading="lazy"></div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <p class="kicker">Nothing fades</p>
+          <h3>See what's gone quiet</h3>
+          <p>Projects you haven't touched in a while are gently marked as quiet, so they don't slip away without you noticing.</p>
+        </div>
+        <div class="shot"><img src="assets/shot-quiet.webp" alt="Projects list where Portfolio v3 is marked Quiet for 5 weeks" width="540" height="1200" loading="lazy"></div>
       </div>
     </div>
   </section>
 
-  <section id="pricing">
+  <section aria-labelledby="trust-title">
     <div class="wrap">
-      <h2>Simple pricing</h2>
+      <h2 id="trust-title">Your projects stay yours</h2>
+      <p class="sub">No account to make, nothing to sync unless you choose to.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+          <h3>Private by design</h3>
+          <p>Your projects stay on your phone. No account, no ads, no analytics.</p>
+        </div>
+        <div class="card">
+          <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2l20 20"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M5 12.9a10 10 0 0 1 5.2-2.8"/><path d="M19 12.9a10 10 0 0 0-2.3-1.6"/><path d="M12 20h.01"/></svg></div>
+          <h3>Works offline</h3>
+          <p>Everything works without a connection, on the bus or in a dead zone.</p>
+        </div>
+        <div class="card">
+          <div class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></div>
+          <h3>Backups your way</h3>
+          <p>Export a backup file whenever you like. With Pro, keep a private snapshot in your own Google Drive too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="alt" aria-labelledby="pricing-title">
+    <div class="wrap">
+      <h2 id="pricing-title">Simple pricing</h2>
       <p class="sub">Start free. Pay once if WipNest becomes part of your routine; no subscription.</p>
       <div class="plans">
         <div class="card plan">
@@ -66,6 +130,7 @@
           </ul>
         </div>
         <div class="card plan pro">
+          <span class="tag">Pay once</span>
           <h3>Pro</h3>
           <p class="price">₱99 <small>one-time</small></p>
           <ul>
@@ -78,6 +143,15 @@
       <p class="fine">Philippine price shown. Google Play shows the price in your currency before you buy.</p>
     </div>
   </section>
+
+  <section class="closing" aria-labelledby="closing-title">
+    <div class="wrap">
+      <img src="assets/bird.webp" alt="" width="720" height="720" loading="lazy">
+      <h2 id="closing-title">Give your projects a nest</h2>
+      <p class="sub">WipNest is coming soon to Google Play. Send a quick email and you'll hear the day it's out.</p>
+      <div class="cta"><a class="btn" href="mailto:maquiling.aa@gmail.com?subject=Tell%20me%20when%20WipNest%20launches">Tell me when it launches</a></div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -86,5 +160,31 @@
     <nav aria-label="Legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-data.html">Delete your data</a></nav>
   </div>
 </footer>
+<script>
+// Reveal sections as they scroll into view; cards in a row follow one another.
+(() => {
+  const head = document.querySelector('.site-head');
+  const onScroll = () => head.classList.toggle('scrolled', scrollY > 8);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // Anything that has reached the lower part of the screen, or was scrolled past quickly, is shown.
+  let pending = [...document.querySelectorAll('main section:not(.hero) :is(h2, .sub, .feature > div, .card, .fine, .closing img, .closing .cta)')];
+  for (const el of pending) {
+    if (el.matches('.card')) el.style.setProperty('--d', [...el.parentElement.children].indexOf(el) * 0.1 + 's');
+    if (el.matches('.feature > .shot')) el.style.setProperty('--d', '0.12s');
+  }
+  let ticking = false;
+  const reveal = () => {
+    ticking = false;
+    const line = innerHeight * 0.92;
+    pending = pending.filter(el => el.getBoundingClientRect().top < line ? (el.classList.add('in'), false) : true);
+    if (!pending.length) removeEventListener('scroll', queue);
+  };
+  const queue = () => { if (!ticking) { ticking = true; requestAnimationFrame(reveal); } };
+  addEventListener('scroll', queue, { passive: true });
+  addEventListener('resize', queue);
+  reveal();
+})();
+</script>
 </body>
 </html>
