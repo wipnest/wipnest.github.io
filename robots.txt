@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wipnest.github.io/sitemap.xml
+Sitemap: https://wipnest.builtbyaldrin.online/sitemap.xml

@@ -1,6 +1,6 @@
-# wipnest.github.io
+# wipnest.builtbyaldrin.online
 
-The WipNest landing page, privacy policy and terms, served by GitHub Pages at https://wipnest.github.io/.
+The WipNest landing page, privacy policy and terms, served by GitHub Pages (repo `wipnest/wipnest.github.io`) at https://wipnest.builtbyaldrin.online/.
 
 - `index.html`, `privacy.html`, `terms.html`, `delete-data.html`, `style.css`: the site
 - `test.html`: how to join closed testing on Google Play (group, opt-in, download)
