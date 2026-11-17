@@ -89,28 +89,15 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Sections */
 section { padding: 80px 0; }
+section[id] { scroll-margin-top: 80px; }
 section.alt { background: var(--surface); }
 section h2 { margin: 0 0 12px; font-size: clamp(1.7rem, 3.6vw, 2.4rem); line-height: 1.15; letter-spacing: -0.02em; }
 section .sub { margin: 0 0 40px; color: var(--muted); max-width: 40em; font-size: 1.08rem; }
 
-/* Tester page */
-.tester-hero { position: relative; overflow: hidden; text-align: center; padding: 72px 0 80px; }
-.tester-hero::before {
-  content: ""; position: absolute; inset: -30% 0 auto; height: 120%; z-index: -1;
-  background: radial-gradient(closest-side at 50% 40%, var(--sun-soft), transparent 75%);
-}
-.tester-hero img { width: 140px; margin: 0 auto 8px; }
-.tester-hero h1 { margin: 0 0 14px; font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.05; letter-spacing: -0.03em; }
-.tester-hero .lead { margin: 0 auto; max-width: 32em; }
-.tester-hero .facts { justify-content: center; }
-.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; max-width: 760px; }
-.steps .card { display: flex; gap: 20px; align-items: flex-start; }
-.steps .num {
-  flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--accent); color: var(--on-accent); font-weight: 700; font-size: 1.3rem;
-}
-.steps h3 { margin: 6px 0 4px; font-size: 1.18rem; }
-.steps p { margin: 0 0 16px; color: var(--muted); }
+/* Fallback when an old tester-page link cannot redirect automatically. */
+.redirect-page { max-width: 640px; margin: 12vh auto; padding: 0 20px; text-align: center; }
+.redirect-page h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; }
+.redirect-page p { color: var(--muted); margin-bottom: 24px; }
 
 /* Launch video */
 section.video { padding-top: 0; text-align: center; }
@@ -162,6 +149,28 @@ section.video { padding-top: 0; text-align: center; }
 .tag { position: absolute; top: -13px; right: 22px; padding: 3px 12px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-size: 0.82rem; font-weight: 700; }
 .fine { margin: 20px 0 0; font-size: 0.92rem; color: var(--muted); }
 
+/* Guides and common questions */
+.guides-intro { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 40px; }
+.guide-list { display: grid; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.question-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 72px; margin: 36px 0 0; }
+.guide-list h3, .question-list h3 { margin: 0 0 10px; font-size: 1.2rem; line-height: 1.25; }
+.guide-list p, .question-list p { margin: 0; max-width: 34em; }
+
+.guide { padding-block: 64px 80px; }
+.guide h1 { max-width: 22ch; margin: 0 0 16px; font-size: clamp(2rem, 5.5vw, 3.5rem); line-height: 1.07; letter-spacing: -0.03em; }
+.guide .lead { max-width: 36em; margin: 0 0 36px; }
+.guide-content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(200px, 290px); gap: clamp(32px, 7vw, 96px); align-items: start; }
+.guide-text { max-width: 65ch; }
+.guide-text h2 { margin: 32px 0 8px; font-size: clamp(1.25rem, 3vw, 1.55rem); line-height: 1.2; }
+.guide-text h2:first-child { margin-top: 0; }
+.guide-text p { margin: 0 0 16px; }
+.guide-example { margin: 0; padding: 18px 20px; background: var(--surface); }
+.guide-example p:last-child { margin-bottom: 0; }
+.guide-screenshot { margin: 0; max-width: 260px; }
+.guide-screenshot figcaption { margin-top: 12px; color: var(--muted); font-size: 0.95rem; }
+.guide-related { margin-top: 48px; }
+.guide-related h2 { margin: 0 0 8px; font-size: 1.25rem; }
+
 /* Closing call to action */
 .closing { text-align: center; }
 .closing img { width: 120px; margin: 0 auto 18px; }
@@ -190,8 +199,14 @@ footer a:hover { color: var(--text); }
 
 @media (max-width: 860px) {
   .grid { grid-template-columns: 1fr; }
+  .question-list { gap: 32px 40px; }
 }
 @media (max-width: 760px) {
+  .guides-intro { display: block; }
+  .guide-list, .question-list { grid-template-columns: 1fr; max-width: 40em; margin: 28px auto 0; }
+  .guide { padding-block: 40px 56px; }
+  .guide-content { grid-template-columns: 1fr; }
+  .guide-screenshot { margin-inline: auto; }
   .hero-body { grid-template-columns: 1fr; padding-block: 32px 56px; gap: 20px; }
   .hero::before { inset: -5% -5% auto -5%; width: 110%; height: 45%; opacity: 0.7; }
   .hero-art { order: -1; }
@@ -202,15 +217,11 @@ footer a:hover { color: var(--text); }
   .facts, footer .wrap, footer nav { justify-content: center; }
   .card:not(.plan) .dot { margin: 0 auto; }
   .plans { margin: 0 auto; }
-  .steps .card { text-align: left; gap: 14px; padding: 20px 18px; }
-  .steps .num { width: 40px; height: 40px; font-size: 1.1rem; }
-  .steps .btn { width: 100%; justify-content: center; }
   .hero h1 { font-size: clamp(2.1rem, 9vw, 2.6rem); }
   .lead { font-size: 1.06rem; margin-bottom: 24px; }
   .cta { flex-direction: column; align-items: stretch; }
   .btn { justify-content: center; }
   .closing .cta { max-width: 340px; margin: 0 auto; }
-  .tester-hero { padding: 32px 0 56px; }
   .plans { gap: 28px; }
   .facts { gap: 6px 16px; }
   .top { padding-block: 10px; }
@@ -228,6 +239,11 @@ footer a:hover { color: var(--text); }
   .legal { padding: 20px 0 48px; }
   .toc ol { columns: 1; }
 }
+@media (max-width: 420px) {
+  .top:has(.home-nav) { flex-wrap: wrap; row-gap: 6px; }
+  .top .home-nav { width: 100%; justify-content: space-between; gap: 8px; }
+  section[id] { scroll-margin-top: 104px; }
+}
 /* Motion: hero entrance, reveal on scroll, phone screens drift with the scroll. All of it is off for reduced motion. */
 @media (prefers-reduced-motion: no-preference) {
   .site-head { transition: box-shadow 0.3s ease; }
@@ -240,8 +256,8 @@ footer a:hover { color: var(--text); }
   .hero-body > div:first-child > :nth-child(5) { animation-delay: 0.32s; }
   .hero-art img { animation: pop 0.9s cubic-bezier(0.2, 0.8, 0.2, 1.1) both, bob 6s ease-in-out 1s infinite; }
 
-  .js main section:not(.hero) :is(h2, .sub, .player, .feature > div, .card, .fine, .closing img, .closing .cta) { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: var(--d, 0s); }
-  .js main section:not(.hero) :is(h2, .sub, .player, .feature > div, .card, .fine, .closing img, .closing .cta).in { opacity: 1; transform: none; }
+  .js main section:not(.hero) :is(h2, .sub, .player, .feature > div, .card, .fine, .question-list > div, .closing img, .closing .cta) { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: var(--d, 0s); }
+  .js main section:not(.hero) :is(h2, .sub, .player, .feature > div, .card, .fine, .question-list > div, .closing img, .closing .cta).in { opacity: 1; transform: none; }
 
   @supports (animation-timeline: view()) {
     .shot img { animation: drift linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
